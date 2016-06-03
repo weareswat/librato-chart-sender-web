@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Exo2-Regular';
+    src: local('Exo2-Regular'),
+         url('../fonts/Exo2-Regular.ttf');
+    }
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+
+    src: local('Montserrat-Regular'),
+         url('../fonts/Montserrat-Regular.ttf');
+}
+
+.summary_table {
+  font-family: Exo2-Regular;
+  font-size: 13px;
+
+}
+
+.title {
+  font-family: Montserrat-Regular;
+}
+
+.summary_header {
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+}
+
+.mywrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.editwrapper{
+    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
