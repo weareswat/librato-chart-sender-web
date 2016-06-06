@@ -36,3 +36,13 @@
     padding-left: 6px;
     padding-right: 6px;
 }
+
+.desc_line{
+    padding-bottom: 0px;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+}
