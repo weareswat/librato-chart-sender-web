@@ -32,7 +32,7 @@
                 <div class="header clearfix">
                     <nav>
                         <ul class="nav nav-pills pull-right">
-                            <li role="presentation"><a href="<!--{ link }-->" >Home</a></li>
+                            <li role="presentation"><a href="../" >Home</a></li>
                             <li role="presentation" class="active"><a href="<!--{ link }-->">Edit</a></li>
                         </ul>
                     </nav>
@@ -40,51 +40,53 @@
                     <h3 class="title">Librato Chart Sender Web</h3>
                 </div>
                 <div class="container first">
-                    <div class="header clearfix">
-                        <h3 class="title">New Config</h3>
-                    </div>
+{#                        <div class="header clearfix">#}
+                            <h3 class="title">New Config</h3>
+{#                        </div>#}
                     <form method="POST"> <!-- form started -->
-                        <div class="summary_table">
-                            <div class="page-header clearfix desc_line">
-                                <h4 class="title">Librato account</h4>
-                            </div>
+                        <div class="formwrapper">
+                            <div class="summary_table">
+                                <div class="page-header clearfix desc_line">
+                                    <h4 class="title">Librato account</h4>
+                                </div>
 
-                            <div class="container-fluid">
-                                    <div class="form-group">
-                                        <div class="col-md-4">
-                                            <h5>Email/Username:</h5>
-                                            <div class="bs-example myModal">
-                                                <input type="text" id="email" placeholder="Enter Email/Username" class="form-control">
-                                            </div>
-                                            <h5>Api_Key:</h5>
-                                            <div class="bs-example myModal">
-                                                <input type="text" placeholder="Enter Api Key" class="form-control">
+                                <div class="container-fluid">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <h5>Email/Username:</h5>
+                                                <div class="bs-example myModal">
+                                                    <input type="text" id="email" placeholder="Enter Email/Username" class="form-control">
+                                                </div>
+                                                <h5>Api_Key:</h5>
+                                                <div class="bs-example myModal">
+                                                    <input type="text" placeholder="Enter Api Key" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                            </div>
-                        </div>
-
-
-                        <div class="summary_table">
-                            <div class="page-header clearfix desc_line">
-                                <h4 class="title">Sending</h4>
+                                </div>
                             </div>
 
-                            <div class="container-fluid">
-                                <div class="col-md-12">
-                                    <h5>Chart ID's</h5>
-                                    <div class="bs-example myModal">
-                                        <select multiple data-role="tagsinput">
-                                            <option value="3419">3419</option>
-                                            <option value="3420">3420</option>
-                                        </select>
-                                    </div>
-                                    <h5>Recipient Email's</h5>
-                                    <div class="bs-example">
-                                        <select multiple data-role="tagsinput">
-                                            <option value="office@rupeal.com">office@rupeal.com</option>
-                                        </select>
+
+                            <div class="summary_table">
+                                <div class="page-header clearfix desc_line">
+                                    <h4 class="title">Sending</h4>
+                                </div>
+
+                                <div class="container-fluid">
+                                    <div class="col-md-12">
+                                        <h5>Chart ID's</h5>
+                                        <div class="bs-example myModal">
+                                            <select multiple data-role="tagsinput">
+                                                <option value="3419">3419</option>
+                                                <option value="3420">3420</option>
+                                            </select>
+                                        </div>
+                                        <h5>Recipient Email's</h5>
+                                        <div class="bs-example">
+                                            <select multiple data-role="tagsinput">
+                                                <option value="office@rupeal.com">office@rupeal.com</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -94,29 +96,16 @@
 {#                                <h4 class="title"></h4>#}
 
                                 <!-- experiment -->
-                                <br><br><br>
-                                <div class="bs-example myModal">
-                                    <button class="btn btn-default btn-md">
+                                <br><br>
+                                <div class="bs-example myModal" align="center">
+                                    <button class="btn btn-default btn-lg">
                                         Save
                                     </button>
                                 </div>
                                 <!-- ___________ -->
 
                             </div>
-{#                        <div class="container-fluid">#}
-{#                            <br><br>#}
-{#                            <div class="summary_table">#}
-{#                                <div class="container-fluid">#}
-{#                                    <div class="col-md-12">#}
-{#                                        <div class="bs-example myModal">#}
-{#                                            <button class="btn btn-default btn-md">#}
-{#                                                Save#}
-{#                                            </button>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
+                        </div>
                     </form> <!-- end of form-->
                 </div>
             </div>

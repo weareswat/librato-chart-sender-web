@@ -46,3 +46,25 @@
     padding: 10px;
     background-color: #fff;
 }
+
+.formwrapper{
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(229, 229, 229);
+    padding-bottom: 40px;
+
+    border-top: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(229, 229, 229);
+    padding-top: 1px;
+
+    border-left: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(229, 229, 229);
+    padding-left: 20px;
+
+    border-right: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(229, 229, 229);
+    padding-right: 20px;
+}
