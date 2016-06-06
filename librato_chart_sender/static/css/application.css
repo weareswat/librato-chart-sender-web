@@ -12,9 +12,8 @@
 }
 
 .summary_table {
-  font-family: Exo2-Regular;
-  font-size: 13px;
-
+    font-family: Exo2-Regular;
+    font-size: 15px;
 }
 
 .title {
@@ -67,4 +66,36 @@
     border-right-style: solid;
     border-right-color: rgb(229, 229, 229);
     padding-right: 20px;
+}
+
+.field {
+    margin-bottom: 7px;
+}
+
+.field .bootstrap-tagsinput span{
+    line-height: 2;
+}
+
+.field-title {
+    margin-top: 15px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+.col-md-4{
+    padding: 0px;
+}
+
+.col-md-11{
+    padding: 0px;
+}
+
+.btn-info{
+    background-color : #337ab7;
+}
+
+.label-info{
+    background-color: #337ab7;
 }
