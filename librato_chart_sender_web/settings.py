@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'librato_chart_sender',
     'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
