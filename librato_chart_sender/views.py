@@ -12,6 +12,11 @@ def index(request):
     return HttpResponse(template.render(request))
 
 
-def config(request):
+def config_new(request):
     template = loader.get_template('config/new.html')
+    return HttpResponse(template.render(request))
+
+
+def config_temp(request):
+    template = loader.get_template('config/temp.html')
     return HttpResponse(template.render(request))
