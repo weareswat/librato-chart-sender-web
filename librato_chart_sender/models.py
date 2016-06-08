@@ -15,4 +15,4 @@ class Configuration(models.Model):
     template = models.CharField(max_length=100)
 
     def __str__(self):
-    	return (' | ').join([self.librato_user, self.librato_api_key, self.recipients_emails, self.chart_ids, str(self.interval), str(self.duration), self.template])
+        return " | ".join([self.librato_user, self.librato_api_key, self.recipients_emails, self.chart_ids, str(self.interval), str(self.duration), self.template])
