@@ -7,96 +7,87 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
         <title>Librato Chart Sender Web</title>
-        <!-- this is nothing-->
 
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <!-- Custom styles for this template -->
+        <!-- This are css files -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/jumbotron.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tagsinput.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- This are js files -->
         <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <script src="{% static 'js/bootstrap-tagsinput.js' %}"></script>
+
     </head>
     <body>
-
-        <div class="container">
-        <div class="header clearfix">
-          <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-          </nav>
-        <h3 class="text-muted">Librato Chart Sender Web</h3>
+        <div class="row summary_header">
+            <div class="col-md-12 mywrapper">
+                <div class="header clearfix">
+                    <nav>
+                        <ul class="nav nav-pills pull-right">
+                            <li role="presentation" class="active"><a href="#">Home</a></li>
+                            <li role="presentation"><a href="config/new.html">Edit</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="title">Librato Chart Sender Web</h3>
+                </div>
+                <div class="row summary_table">
+                    <div class="col-lg-12">
+                        <div class="panel-default">
+                            <div class="panel-heading"><h3 class="panel-title">Summary</h3> </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <!-- Table -->
+                                        <table class="table table-bordered table-hover table-striped summary_table">
+                                            <thead class="summary_header">
+                                                <tr>
+                                                    <th>Charts ID's</th>
+                                                    <th>Recipients</th>
+                                                    <th>Librato Account</th>
+                                                    <th class="col-md-1 editwrapper" align="center"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>chart1,chart2</td>
+                                                    <td>email1,email2</td>
+                                                    <td>account1</td>
+                                                    <td align="middle" style="padding: 6px" >
+                                                        <button type="button" class="btn btn-default btn-sm">Edit</button>
+                                                        <button type="button" class="btn btn-default btn-md">
+                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chart1,chart3</td>
+                                                    <td>email2,email4</td>
+                                                    <td>account2</td>
+                                                    <td align="middle" style="padding: 6px" >
+                                                        <button type="button" class="btn btn-default btn-sm">Edit</button>
+                                                        <button type="button" class="btn btn-default btn-md">
+                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-      <div class="jumbotron">
-        <h1>Librato Chart Sender</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
-
-          <form method="POST">
-              <!-- THIS WILL BE DYNAMIC! -->
-              <div class="col-lg-6">
-                  <!--column 1 -->
-              <h4>Chart ID #1</h4>
-              <input type="number">
-                  <br><br>
-              <p>
-              <button>Add +1 Chart</button>
-              </p>
-              </div>
-
-              <div class="col-lg-6">
-                  <!-- column 2 -->
-              <h4>Recipient Email #1</h4>
-              <input type="text">
-                  <br><br>
-              <p>
-              <button>Add +1 Email</button>
-              </p>
-              </div>
-
-
-        <center><p><submit class="btn btn-lg btn-success">Sign up today</submit></p></center>
-          </form>
-          <!--
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
-        </div>
-
-        </div>
-
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
-
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-  </body>
+    </body>
 </html>

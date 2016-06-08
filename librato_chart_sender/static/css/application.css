@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Exo2-Regular';
+    src: local('Exo2-Regular'),
+         url('../fonts/Exo2-Regular.ttf');
+    }
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+
+    src: local('Montserrat-Regular'),
+         url('../fonts/Montserrat-Regular.ttf');
+}
+
+.summary_table {
+    font-family: Exo2-Regular;
+    font-size: 15px;
+}
+
+.title {
+  font-family: Montserrat-Regular;
+}
+
+.summary_header {
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+}
+
+.mywrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.editwrapper{
+    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.desc_line{
+    padding-bottom: 0px;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.formwrapper{
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(229, 229, 229);
+    padding-bottom: 40px;
+
+    border-top: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(229, 229, 229);
+    padding-top: 1px;
+
+    border-left: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(229, 229, 229);
+    padding-left: 20px;
+
+    border-right: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(229, 229, 229);
+    padding-right: 20px;
+}
+
+.field {
+    margin-bottom: 7px;
+}
+
+.field .bootstrap-tagsinput span{
+    line-height: 2;
+}
+
+.field-title {
+    margin-top: 15px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+.col-md-4{
+    padding: 0px;
+}
+
+.col-md-11{
+    padding: 0px;
+}
+
+.btn-info{
+    background-color : #337ab7;
+}
+
+.label-info{
+    background-color: #337ab7;
+}

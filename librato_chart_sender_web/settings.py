@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'librato_chart_sender',
+    'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,4 +123,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     ('css', 'librato_chart_sender/static/css'),
     ('js', 'librato_chart_sender/static/js'),
+    ('fonts', 'librato_chart_sender/static/fonts'),
 ]

@@ -4,8 +4,14 @@ from django.views import generic
 from django.template import loader
 from django.template import Template
 
+
 # Create your views here.
 
 def index(request):
     template = loader.get_template('index.html')
+    return HttpResponse(template.render(request))
+
+
+def config(request):
+    template = loader.get_template('config/new.html')
     return HttpResponse(template.render(request))
