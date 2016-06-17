@@ -14,7 +14,9 @@ def config_new(request):
         if form.is_valid():
             return redirect('index')
         else:
-            return render(request, 'config/new.html', { 'errors': form.errors})
+            error_list = {'error_list': form.get_errors()}
+            error_list.update(form.get_form_values())
+            return render(request, 'config/new.html', error_list)
     else:
         return render(request, 'config/new.html')
 

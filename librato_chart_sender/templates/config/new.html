@@ -30,23 +30,28 @@
         <div class="row summary_header">
             <div class="col-md-12 mywrapper">
                 <div class="header clearfix">
-{#                    {% if blablahblah %}#}
-{#                    <div class="alert alert-danger" role="alert"><span class="fa fa-exclamation-circle" aria-hidden="true"></span>#}
-{#                        <span class="sr-only">Error:</span>#}
-{#                        Enter a valid email address#}
-{#                    </div>#}
-{#                    {% endif %}#}
                     <nav>
                         <ul class="nav nav-pills pull-right">
                             <li role="presentation"><a href="../../" >Home</a></li>
-                            <li role="presentation" class="active"><a href="#">Edit</a></li>
+                            <li role="presentation" class="active"><a href=".">Edit</a></li>
                         </ul>
                     </nav>
 
                     <h3 class="title">Librato Chart Sender Web</h3>
                 </div>
                 <div class="container first">
+
+                    {% for error in error_list %}
+
+                        <div class="alert alert-danger" role="alert"><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
                     <h3 class="title">New Config</h3>
+
                     <form method="POST" action="/config/new/" id="new-config-form"> <!-- form started -->
                         {% csrf_token %}
 
@@ -62,11 +67,11 @@
                                         <div class="col-md-4">
                                             <label for="username">Email/Username:</label>
                                             <div class="field">
-                                                <input type="email" id="username" name="email" class="form-control">
+                                                <input type="email" id="username" name="email" class="form-control" value="{{ email_username }}" required>
                                             </div>
                                             <label for="api-key">Api_Key:</label>
                                             <div class="field">
-                                                <input id="api-key" type="text" name="api-key" class="form-control">
+                                                <input id="api-key" type="text" name="api_key" class="form-control" value="{{ api_key }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -83,12 +88,18 @@
                                         <div class="col-md-11">
                                             <label for="chart_ids">Chart ID's</label>
                                             <div class="field">
-                                                <select id="chart_ids" name="chart_ids" multiple class="form-control">
+                                                <select id="chart_ids" name="chart_ids" multiple class="form-control" required>
+                                                    {% for chart_id in chart_ids %}
+                                                        <option value="{{ chart_id }}">{{ chart_id }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                             <label for="recipients">Recipient Email's</label>
                                             <div class="field">
-                                                <select id="recipients" name="recipients" multiple class="form-control">
+                                                <select id="recipients" name="recipients" multiple class="form-control" required>
+                                                    {% for recipient in recipients %}
+                                                        <option value="{{ recipient }}">{{ recipient }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
