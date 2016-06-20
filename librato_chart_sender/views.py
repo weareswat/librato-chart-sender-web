@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
 from .forms import NewConfigForm
 from django.shortcuts import redirect
 from .models import Configuration
 
+
 def index(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render(request))
+    configurations = Configuration.objects.all()
+    return render(request, 'index.html', {'configurations': configurations})
+
 
 def config_new(request):
     if request.method == "POST":
