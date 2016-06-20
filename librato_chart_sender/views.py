@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import NewConfigForm
 from django.shortcuts import redirect
 from .models import Configuration
@@ -27,5 +27,18 @@ def config_new(request):
             error_list.update(form.get_form_values())
             return render(request, 'config/new.html', error_list)
     else:
-        return render(request, 'config/new.html')
+        return render(request, 'config/new.html', {'title': 'New Config'})
 
+
+def config_edit(request, config_id):
+    config = Configuration.objects.get(id=config_id)
+    email_username = config.librato_user
+    api_key = config.librato_api_key
+    recipients = config.recipients_emails.split(',')
+    chart_ids = config.chart_ids.split(',')
+
+    return render(request, 'config/new.html', {'title': 'Edit Config',
+                                               'email_username': email_username,
+                                               'api_key': api_key,
+                                               'recipients': recipients,
+                                               'chart_ids': chart_ids})

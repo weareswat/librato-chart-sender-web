@@ -32,7 +32,7 @@
                 <div class="header clearfix">
                     <nav>
                         <ul class="nav nav-pills pull-right">
-                            <li role="presentation"><a href="../../" >Home</a></li>
+                            <li role="presentation"><a href="{% url 'index' %}" >Home</a></li>
                             <li role="presentation" class="active"><a href=".">Edit</a></li>
                         </ul>
                     </nav>
@@ -50,7 +50,7 @@
 
                     {% endfor %}
 
-                    <h3 class="title">New Config</h3>
+                    <h3 class="title">{{ title }}</h3>
 
                     <form method="POST" action="/config/new/" id="new-config-form"> <!-- form started -->
                         {% csrf_token %}
