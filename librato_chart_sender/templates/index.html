@@ -59,8 +59,8 @@
                                             <tbody>
                                                 {% for configuration in configurations %}
                                                     <tr>
-                                                        <td>{{ configuration.chart_ids }}</td>
-                                                        <td>{{ configuration.recipients_emails }}</td>
+                                                        <td>{{ configuration.separate_chart_ids }}</td>
+                                                        <td>{{ configuration.separate_recipients_emails }}</td>
                                                         <td>{{ configuration.librato_user }}</td>
                                                         <td align="middle" style="padding: 6px" >
                                                             <button type="button" class="btn btn-default btn-sm" name="{{ configuration.id }}" id="{{ configuration.id }}">Edit</button>
