@@ -24,7 +24,7 @@
         <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
         <script src="{% static 'js/bootstrap-tagsinput.js' %}"></script>
-
+        <script src="{% static 'js/new_config_form.js' %}"></script>
     </head>
     <body>
         <div class="row summary_header">
@@ -32,16 +32,30 @@
                 <div class="header clearfix">
                     <nav>
                         <ul class="nav nav-pills pull-right">
-                            <li role="presentation"><a href="../" >Home</a></li>
-                            <li role="presentation" class="active"><a href="#">Edit</a></li>
+                            <li role="presentation"><a href="../../" >Home</a></li>
+                            <li role="presentation" class="active"><a href=".">Edit</a></li>
                         </ul>
                     </nav>
 
                     <h3 class="title">Librato Chart Sender Web</h3>
                 </div>
                 <div class="container first">
+
+                    {% for error in error_list %}
+
+                        <div class="alert alert-danger" role="alert"><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
                     <h3 class="title">New Config</h3>
-                    <form method="POST"> <!-- form started -->
+
+                    <form method="POST" action="/config/new/" id="new-config-form"> <!-- form started -->
+                        {% csrf_token %}
+
+
                         <div class="formwrapper">
                             <div class="summary_table">
                                 <div class="page-header clearfix desc_line">
@@ -53,11 +67,11 @@
                                         <div class="col-md-4">
                                             <label for="username">Email/Username:</label>
                                             <div class="field">
-                                                <input type="email" id="email" class="form-control" autocomplete="off">
+                                                <input type="email" id="username" name="email" class="form-control" value="{{ email_username }}" required>
                                             </div>
                                             <label for="api-key">Api_Key:</label>
                                             <div class="field">
-                                                <input type="text" class="form-control">
+                                                <input id="api-key" type="text" name="api_key" class="form-control" value="{{ api_key }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -74,15 +88,18 @@
                                         <div class="col-md-11">
                                             <label for="chart_ids">Chart ID's</label>
                                             <div class="field">
-                                                <select id="chart_idsg" multiple data-role="tagsinput" class="form-control">
-                                                    <option value="3419">3419</option>
-                                                    <option value="3420">3420</option>
+                                                <select id="chart_ids" name="chart_ids" multiple class="form-control" required>
+                                                    {% for chart_id in chart_ids %}
+                                                        <option value="{{ chart_id }}">{{ chart_id }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                             <label for="recipients">Recipient Email's</label>
                                             <div class="field">
-                                                <select id="recipients" multiple data-role="tagsinput" class="form-control" >
-                                                    <option value="office@rupeal.com">office@rupeal.com</option>
+                                                <select id="recipients" name="recipients" multiple class="form-control" required>
+                                                    {% for recipient in recipients %}
+                                                        <option value="{{ recipient }}">{{ recipient }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
@@ -94,7 +111,7 @@
                             <div class=" clearfix desc_line">
                                 <br>
                                 <div class="bs-example myModal">
-                                    <button type="button" class="btn btn-info btn-lg">Save</button>
+                                    <button type="button" class="btn btn-info btn-lg" id="form-submit-button">Save</button>
                                 </div>
                             </div>
                         </div>

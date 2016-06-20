@@ -35,7 +35,7 @@
                     <nav>
                         <ul class="nav nav-pills pull-right">
                             <li role="presentation" class="active"><a href="#">Home</a></li>
-                            <li role="presentation"><a href="config/new.html">Edit</a></li>
+                            <li role="presentation"><a href="config/new/">Add new</a></li>
                         </ul>
                     </nav>
                     <h3 class="title">Librato Chart Sender Web</h3>
@@ -57,28 +57,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>chart1,chart2</td>
-                                                    <td>email1,email2</td>
-                                                    <td>account1</td>
-                                                    <td align="middle" style="padding: 6px" >
-                                                        <button type="button" class="btn btn-default btn-sm">Edit</button>
-                                                        <button type="button" class="btn btn-default btn-md">
-                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>chart1,chart3</td>
-                                                    <td>email2,email4</td>
-                                                    <td>account2</td>
-                                                    <td align="middle" style="padding: 6px" >
-                                                        <button type="button" class="btn btn-default btn-sm">Edit</button>
-                                                        <button type="button" class="btn btn-default btn-md">
-                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                {% for configuration in configurations %}
+                                                    <tr>
+                                                        <td>{{ configuration.chart_ids }}</td>
+                                                        <td>{{ configuration.recipients_emails }}</td>
+                                                        <td>{{ configuration.librato_user }}</td>
+                                                        <td align="middle" style="padding: 6px" >
+                                                            <button type="button" class="btn btn-default btn-sm" name="{{ configuration.id }}" id="{{ configuration.id }}">Edit</button>
+                                                            <button type="button" class="btn btn-default btn-md" name="{{ configuration.id }}" id="{{ configuration.id }}">
+                                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                    </div>
