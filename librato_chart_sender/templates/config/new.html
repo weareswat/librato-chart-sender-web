@@ -52,7 +52,7 @@
 
                     <h3 class="title">{{ title }}</h3>
 
-                    <form method="POST" action="/config/new/" id="new-config-form"> <!-- form started -->
+                    <form method="POST" action="/config/{{ page }}/" id="new-config-form"> <!-- form started -->
                         {% csrf_token %}
 
 

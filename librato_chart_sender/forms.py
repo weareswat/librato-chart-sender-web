@@ -1,6 +1,5 @@
 import re
 
-
 class NewConfigForm:
 
     def __init__(self, form):
