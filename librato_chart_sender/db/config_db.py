@@ -29,3 +29,9 @@ class ConfigDB:
             template='something to change'
         )
         return config
+
+    @classmethod
+    def delete_configuration(cls, config_id):
+        config = Configuration.objects.get(id=config_id)
+        config.delete()
+        return config

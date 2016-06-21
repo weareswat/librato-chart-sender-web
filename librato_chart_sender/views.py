@@ -44,3 +44,7 @@ def config_edit(request, config_id):
                                                    'recipients': config.recipients_emails.split(','),
                                                    'chart_ids': config.chart_ids.split(',')})
 
+
+def config_delete(request, config_id):
+    ConfigDB.delete_configuration(config_id)
+    return redirect('index')

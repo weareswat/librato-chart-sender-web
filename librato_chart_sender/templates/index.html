@@ -63,10 +63,12 @@
                                                         <td>{{ configuration.separate_recipients_emails }}</td>
                                                         <td>{{ configuration.librato_user }}</td>
                                                         <td align="middle" style="padding: 6px" >
-                                                            <a href="../config/edit/{{ configuration.id }}" class="btn btn-default btn-sm">Edit</a>
-                                                            <button type="button" class="btn btn-default btn-md" name="{{ configuration.id }}" id="{{ configuration.id }}">
+                                                            <a href="../config/edit/{{ configuration.id }}" class="btn btn-default btn-sm">
+                                                                Edit
+                                                            </a>
+                                                            <a href="../config/delete/{{ configuration.id }}" class="btn btn-default btn-md" onclick="return confirm('Are you sure you want to delete this item?');">
                                                                 <i class="fa fa-times" aria-hidden="true"></i>
-                                                            </button>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
