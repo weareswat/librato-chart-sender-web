@@ -8,13 +8,26 @@ It's meant so that admins can acess the website and work with their own configur
 ### Install instructions
 1. Install Django
 
-    * ```pip install django```
+    * ```sudo pip install django```
 
 2. Install django-fontawesome
 
-    * ```pip install django-fontawesome```
+    * ```sudo pip install django-fontawesome```
+
+3. Install postgres package
+	
+	* ```sudo pip install psycopg2```
+
+	Configure your db via postgres console if needed:
+	
+	1. ```sudo su ```
+	2. ```su postgres -c psql postgres```
+	3. ```CREATE USER postgres WITH PASSWORD 'swat';```
+	4. ```CREATE DATABASE librato_chart_sender WITH OWNER postgres;```
+	5. ```GRANT ALL PRIVILEGES ON DATABASE librato_chart_sender TO postgres;```
+	
     
-3. Migrate the database to your machine
+4. Migrate the database to your machine
 
     * ```python manage.py migrate```
 
