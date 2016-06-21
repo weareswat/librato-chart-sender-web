@@ -1,6 +1,5 @@
 import re
 
-
 class NewConfigForm:
 
     def __init__(self, form):
@@ -43,17 +42,25 @@ class NewConfigForm:
             return True
 
     def __validate_recipient_emails(self, emails_list):
-        valid = True
-        for email in emails_list:
-            if not self.__validate_email(email):
-                self.errors.append('{email} is not a valid recipient email.'.format(email=email))
-                valid = False
-        return valid
+        if not emails_list:
+            self.errors.append('You must specify at least one recipient')
+            return False
+        else:
+            valid = True
+            for email in emails_list:
+                if not self.__validate_email(email):
+                    self.errors.append('{email} is not a valid recipient email.'.format(email=email))
+                    valid = False
+            return valid
 
     def __validate_integers(self, integers):
-        valid = True
-        for integer in integers:
-            if not self.__validate_integer(integer):
-                self.errors.append('{integer} is not a valid chart number.'.format(integer=integer))
-                valid = False
-        return valid
+        if not integers:
+            self.errors.append('You must specify at least one chart number')
+            return False
+        else:
+            valid = True
+            for integer in integers:
+                if not self.__validate_integer(integer):
+                    self.errors.append('{integer} is not a valid chart number.'.format(integer=integer))
+                    valid = False
+            return valid

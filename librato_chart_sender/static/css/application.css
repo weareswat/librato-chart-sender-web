@@ -99,3 +99,7 @@
 .label-info{
     background-color: #337ab7;
 }
+
+a:link{
+    text-decoration: none;
+}
