@@ -5,3 +5,4 @@
 venv
 staticfiles
 .env
+local_settings.py

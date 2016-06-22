@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
-
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+HEROKU_DB_URL = 'postgres://aylxtcctohrfwb:XpDK6J5zEDK0KeZz5KEjv7sMY8@ec2-54-75-238-7.eu-west-1.compute.amazonaws.com:5432/del5snld1o8g20'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
@@ -75,17 +75,21 @@ WSGI_APPLICATION = 'librato_chart_sender_web.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'librato_chart_sender',
-        'USER': 'postgres',
-        'PASSWORD': 'swat',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+try:
+    from local_settings import *
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'librato_chart_sender',
+            'USER': 'postgres',
+            'PASSWORD': 'swat',
+            'HOST': '',
+            'PORT': '',
+        }
+    }   
+except ImportError as e:
+    DATABASES = {'default': dj_database_url.config(default=HEROKU_DB_URL)}
+    pass
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
