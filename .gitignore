@@ -2,3 +2,6 @@
 *.pyc
 *.sqlite
 *.sqlite3
+venv
+staticfiles
+.env
