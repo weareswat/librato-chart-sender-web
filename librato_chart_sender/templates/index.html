@@ -25,7 +25,6 @@
         <!-- This are js files -->
         <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
-        <script src="{% static 'js/bootstrap-tagsinput.js' %}"></script>
 
     </head>
     <body>
@@ -53,6 +52,7 @@
                                                     <th>Charts ID's</th>
                                                     <th>Recipients</th>
                                                     <th>Librato Account</th>
+                                                    <th>Interval</th>
                                                     <th class="col-md-1 editwrapper" align="center"></th>
                                                 </tr>
                                             </thead>
@@ -62,6 +62,7 @@
                                                         <td>{{ configuration.separate_chart_ids }}</td>
                                                         <td>{{ configuration.separate_recipients_emails }}</td>
                                                         <td>{{ configuration.librato_user }}</td>
+                                                        <td>{{ configuration.interval }}</td>
                                                         <td align="middle" style="padding: 6px" >
                                                             <a href="../config/edit/{{ configuration.id }}" class="btn btn-default btn-sm">
                                                                 Edit
