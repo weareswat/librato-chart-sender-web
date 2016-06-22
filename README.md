@@ -15,7 +15,9 @@ It's meant so that admins can acess the website and work with their own configur
     * ```sudo pip install django-fontawesome```
 
 3. Install postgres package
-	
+
+	* install [postgress.app](http://postgresapp.com/)	
+
 	* ```sudo pip install psycopg2```
 
 	Configure your db via postgres console if needed:
