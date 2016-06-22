@@ -129,5 +129,4 @@ STATICFILES_DIRS = [
     ('css', 'librato_chart_sender/static/css'),
     ('js', 'librato_chart_sender/static/js'),
     ('fonts', 'librato_chart_sender/static/fonts'),
-    os.path.join(PROJECT_ROOT, 'static'),
 ]
