@@ -22,8 +22,9 @@ class NewConfigForm:
             'email_username': self.form.get('email'),
             'api_key': self.form.get('api_key'),
             'chart_ids': self.form.getlist('chart_ids'),
-            'recipients': self.form.getlist('recipients')
-
+            'recipients': self.form.getlist('recipients'),
+            'duration': self.form.get('duration'),
+            'interval': self.form.get('interval')
         }
 
     def __validate_email(self, email):
