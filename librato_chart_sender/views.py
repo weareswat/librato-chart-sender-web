@@ -19,10 +19,16 @@ def config_new(request):
         else:
             error_list = {'error_list': form.get_errors()}
             error_list.update(form.get_form_values())
+            error_list.update({'title': 'New Config',
+                               'page': 'new',
+                               'available_options': ['daily', 'weekly', 'monthly']})
             return render(request, 'config/new.html', error_list)
     else:
         return render(request, 'config/new.html', {'title': 'New Config',
-                                                   'page': 'new'})
+                                                   'page': 'new',
+                                                   'duration': '604800',
+                                                   'interval': 'weekly',
+                                                   'available_options': ['daily', 'weekly', 'monthly']})
 
 
 def config_edit(request, config_id):
@@ -35,14 +41,20 @@ def config_edit(request, config_id):
         else:
             error_list = {'error_list': form.get_errors()}
             error_list.update(form.get_form_values())
+            error_list.update({'title': 'New Config',
+                               'page': 'new',
+                               'available_options': ['daily', 'weekly', 'monthly']})
             return render(request, 'config/new.html', error_list)
     else:
         return render(request, 'config/new.html', {'title': 'Edit Config',
-                                                   'page': 'edit/'+config_id,
+                                                   'page': 'edit/' + config_id,
                                                    'email_username': config.librato_user,
                                                    'api_key': config.librato_api_key,
-                                                   'recipients': config.recipients_emails.split(','),
-                                                   'chart_ids': config.chart_ids.split(',')})
+                                                   'recipients': config.recipients_emails,
+                                                   'chart_ids': config.chart_ids,
+                                                   'duration': config.duration,
+                                                   'available_options': ['daily', 'weekly', 'monthly'],
+                                                   'interval': config.interval})
 
 
 def config_delete(request, config_id):

@@ -17,7 +17,6 @@
         <!-- This are css files -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/jumbotron.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tagsinput.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
@@ -34,7 +33,7 @@
                     <nav>
                         <ul class="nav nav-pills pull-right">
                             <li role="presentation" class="active"><a href="{% url 'index' %}">Home</a></li>
-                            <li role="presentation"><a href="config/new/">New Config</a></li>
+                            <li role="presentation"><a href="{% url 'config-new' %}">New Config</a></li>
                         </ul>
                     </nav>
                     <h3 class="title"><a href="{% url 'index' %}" >Librato Chart Sender Web</a></h3>

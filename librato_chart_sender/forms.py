@@ -7,8 +7,8 @@ class NewConfigForm:
         self.errors = []
 
     def is_valid(self):
-        if all([self.__validate_recipient_emails(self.form.getlist('recipients')),
-                self.__validate_integers(self.form.getlist('chart_ids')),
+        if all([self.__validate_recipient_emails(self.form.get('recipients').split(',')),
+                self.__validate_integers(self.form.get('chart_ids').split(',')),
                 self.__validate_librato_email(self.form.get('email'))]):
             return True
         else:
@@ -21,19 +21,19 @@ class NewConfigForm:
         return {
             'email_username': self.form.get('email'),
             'api_key': self.form.get('api_key'),
-            'chart_ids': self.form.getlist('chart_ids'),
-            'recipients': self.form.getlist('recipients'),
+            'chart_ids': self.form.get('chart_ids'),
+            'recipients': self.form.get('recipients'),
             'duration': self.form.get('duration'),
             'interval': self.form.get('interval')
         }
 
     def __validate_email(self, email):
         email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-        return True if re.match(email_regex, email) else False
+        return True if re.match(email_regex, email.strip()) else False
 
     def __validate_integer(self, number):
         integer_regex = r"^-?[0-9]+$"
-        return True if re.match(integer_regex, number) else False
+        return True if re.match(integer_regex, number.strip()) else False
 
     def __validate_librato_email(self, email):
         if not self.__validate_email(email):
@@ -43,6 +43,7 @@ class NewConfigForm:
             return True
 
     def __validate_recipient_emails(self, emails_list):
+
         if not emails_list:
             self.errors.append('You must specify at least one recipient')
             return False

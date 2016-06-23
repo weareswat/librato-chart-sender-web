@@ -16,15 +16,19 @@
         <!-- This are the css files -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/jumbotron.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tagsinput.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tokenfield.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/tokenfield-typeahead.css' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
         <!-- This are the js files -->
         <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
-        <script src="{% static 'js/bootstrap-tagsinput.js' %}"></script>
         <script src="{% static 'js/new_config_form.js' %}"></script>
+        <script src="{% static 'js/bootstrap-tokenfield.js' %}"></script>
+        <script type="application/javascript">
+            var cities = [{{ recipients1|safe }}];
+        </script>
     </head>
     <body>
         <div class="row summary_header">
@@ -67,11 +71,11 @@
                                         <div class="col-md-4">
                                             <label for="username">Email/Username:</label>
                                             <div class="field">
-                                                <input type="email" id="username" name="email" class="form-control" value="{{ email_username }}" required/>
+                                                <input type="email" id="username" name="email" class="form-control" value="{{ email_username }}">
                                             </div>
                                             <label for="api-key">Api_Key:</label>
                                             <div class="field">
-                                                <input id="api-key" type="text" name="api_key" class="form-control" value="{{ api_key }}" required/>
+                                                <input id="api-key" type="text" name="api_key" class="form-control" value="{{ api_key }}">
                                             </div>
                                         </div>
                                     </div>
@@ -83,30 +87,46 @@
                                 <div class="page-header clearfix desc_line">
                                     <h4 class="title">Sending</h4>
                                 </div>
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <div class="container-fluid">
-                                        <div class="col-md-11">
+                                        <div class="col-md-4">
+
                                             <label for="chart_ids">Chart ID's</label>
-                                            <div class="field">
-                                                <select id="chart_ids" name="chart_ids" multiple class="form-control" required>
-                                                    {% for chart_id in chart_ids %}
-                                                        <option value="{{ chart_id }}">{{ chart_id }}</option>
-                                                    {% endfor %}
-                                                </select>
+                                            <div id="chart_ids_container" class="field">
+                                                <input type="text" id="chart_ids" name="chart_ids" class="form-control" value="{{ chart_ids }}">
                                             </div>
+
                                             <label for="recipients">Recipient Email's</label>
+                                            <div id="recipients_container" class="field">
+{#                                                <select id="recipients" name="recipients" multiple class="form-control" >#}
+                                                <input type="text" id="recipients" name="recipients" class="form-control" value="{{ recipients }}">
+{#                                                    {% for r in recipients %}#}
+{#                                                        <option selected="selected" value="{{ r }}">{{ r }}</option>#}
+{#                                                    {% endfor %}#}
+{#                                                </select>#}
+                                            </div>
+
+                                            <label for="duration">Duration: (seconds)</label>
+                                            <div class="field" id="duration_div">
+                                                <input id="duration" type="text" name="duration" class="form-control" value="{{ duration }}">
+                                            </div>
+                                            <label for="interval">Interval:</label>
                                             <div class="field">
-                                                <select id="recipients" name="recipients" multiple class="form-control" required>
-                                                    {% for recipient in recipients %}
-                                                        <option value="{{ recipient }}">{{ recipient }}</option>
+                                                <select class="form-control" id="interval" name="interval">
+                                                    {% for option in available_options %}
+                                                        {% if interval == option %}
+                                                            <option selected="selected"> {{ option }}</option>
+                                                        {% else %}
+                                                            <option> {{ option }}</option>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                 </div>
+                                </div>
                             </div>
-                        </div>
                         <div class=" clearfix desc_line summary_table">
                             <div class=" clearfix desc_line">
                                 <br>
