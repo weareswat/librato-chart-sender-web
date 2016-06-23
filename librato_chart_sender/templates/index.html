@@ -17,7 +17,6 @@
         <!-- This are css files -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/jumbotron.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tagsinput.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
@@ -25,7 +24,6 @@
         <!-- This are js files -->
         <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
-        <script src="{% static 'js/bootstrap-tagsinput.js' %}"></script>
 
     </head>
     <body>
@@ -35,7 +33,7 @@
                     <nav>
                         <ul class="nav nav-pills pull-right">
                             <li role="presentation" class="active"><a href="{% url 'index' %}">Home</a></li>
-                            <li role="presentation"><a href="config/new/">New Config</a></li>
+                            <li role="presentation"><a href="{% url 'config-new' %}">New Config</a></li>
                         </ul>
                     </nav>
                     <h3 class="title"><a href="{% url 'index' %}" >Librato Chart Sender Web</a></h3>
@@ -53,6 +51,7 @@
                                                     <th>Charts ID's</th>
                                                     <th>Recipients</th>
                                                     <th>Librato Account</th>
+                                                    <th>Interval</th>
                                                     <th class="col-md-1 editwrapper" align="center"></th>
                                                 </tr>
                                             </thead>
@@ -62,6 +61,7 @@
                                                         <td>{{ configuration.separate_chart_ids }}</td>
                                                         <td>{{ configuration.separate_recipients_emails }}</td>
                                                         <td>{{ configuration.librato_user }}</td>
+                                                        <td>{{ configuration.interval }}</td>
                                                         <td align="middle" style="padding: 6px" >
                                                             <a href="../config/edit/{{ configuration.id }}" class="btn btn-default btn-sm">
                                                                 Edit
