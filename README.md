@@ -19,6 +19,8 @@ It's meant so that admins can acess the website and work with their own configur
 	* install [postgress.app](http://postgresapp.com/)	
 
 	* ```sudo pip install psycopg2```
+	
+	* ```sudo pip install -e git+https://github.com/weareswat/librato_chart_sender_package.git#egg=Package```
 
 	Configure your db via postgres console if needed:
 	
