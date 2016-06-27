@@ -5,3 +5,4 @@ django-fontawesome==0.2.6
 urllib3==1.15.1
 gunicorn==19.6.0
 dj-database-url==0.4.1
+git+https://github.com/weareswat/librato_chart_sender_package.git

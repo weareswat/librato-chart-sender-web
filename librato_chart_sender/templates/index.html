@@ -52,7 +52,7 @@
                                                     <th>Recipients</th>
                                                     <th>Librato Account</th>
                                                     <th>Interval</th>
-                                                    <th class="col-md-1 editwrapper" align="center"></th>
+                                                    <th class="col-md-2 editwrapper" align="center"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -63,6 +63,9 @@
                                                         <td>{{ configuration.librato_user }}</td>
                                                         <td>{{ configuration.interval }}</td>
                                                         <td align="middle" style="padding: 6px" >
+                                                            <a href="../config/send_now/{{ configuration.id }}" class="btn btn-default btn-sm">
+                                                                Send Now
+                                                            </a>
                                                             <a href="../config/edit/{{ configuration.id }}" class="btn btn-default btn-sm">
                                                                 Edit
                                                             </a>
