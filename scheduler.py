@@ -12,7 +12,7 @@ sched = BlockingScheduler()
 #         SendChartInteractor(ConfigDB).run(config.id)
 #         logger.info('report sent to config_id={config_id}'.format(config_id=config.id))
 
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=18)
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=8)
 def scheduled_job_daily():
     for config in ConfigDB.get_configurations_by_interval('daily'):
         SendChartInteractor(ConfigDB).run(config.id)
