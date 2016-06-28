@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from .models import Configuration
 from db.config_db import ConfigDB
 from interactors import SendChartInteractor
-
+from django.contrib import messages
 
 def index(request):
     configurations = Configuration.objects.all()
@@ -64,4 +64,5 @@ def config_delete(request, config_id):
 
 def send_now(request, config_id):
     SendChartInteractor(ConfigDB).run(config_id)
+    messages.success(request, 'Successfully sent report!')
     return redirect('index')

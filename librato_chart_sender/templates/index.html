@@ -38,6 +38,12 @@
                     </nav>
                     <h3 class="title"><a href="{% url 'index' %}" >Librato Chart Sender Web</a></h3>
                 </div>
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert"><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+                        <span class="sr-only">Success:</span>
+                        {{ message }}
+                    </div>
+                {% endfor %}
                 <div class="row summary_table">
                     <div class="col-lg-12">
                         <div class="panel-default">
