@@ -137,6 +137,7 @@ STATICFILES_DIRS = [
 
 LOGGING = {
     'version': 1,
+    'disable_existing_loggers': False,
     'handlers': {
         'console': {
             'level': 'DEBUG',
