@@ -40,3 +40,7 @@ class ConfigDB:
     @classmethod
     def get_all_configurations(cls):
         return Configuration.objects.all()
+
+    @classmethod
+    def get_configurations_by_interval(cls, interval):
+        return Configuration.objects.filter(interval=interval)
