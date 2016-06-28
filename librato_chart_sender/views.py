@@ -3,7 +3,7 @@ from .forms import NewConfigForm
 from django.shortcuts import redirect
 from .models import Configuration
 from db.config_db import ConfigDB
-from chart_sender import LibratoChartSender
+from interactors import SendChartInteractor
 
 
 def index(request):
@@ -63,13 +63,5 @@ def config_delete(request, config_id):
     return redirect('index')
 
 def send_now(request, config_id):
-    config = Configuration.objects.get(id=config_id)
-    chart_sender = LibratoChartSender(config.chart_ids.split(', '), config.recipients_emails.split(', '), {
-        'librato_api_key': config.librato_api_key,
-        'mailgun_api_key': 'key-a05af654983f6c57ec99904a3b84c7b3'})
-
-    # chart_sender = LibratoChartSender([3419, 3420, 3421], ['goncalo.correia@rupeal.com'], {
-    #     'librato_api_key': 'b4bf0341c8cdd3b429826a18d1a07582895fa12c7fb97eb8f2c6bdb015004b86',
-    #     'mailgun_api_key': 'key-a05af654983f6c57ec99904a3b84c7b3'})
-    chart_sender.run()
+    SendChartInteractor(ConfigDB).run(config_id)
     return redirect('index')
