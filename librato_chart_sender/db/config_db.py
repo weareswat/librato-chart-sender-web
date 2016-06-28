@@ -36,3 +36,7 @@ class ConfigDB:
         config = Configuration.objects.get(id=config_id)
         config.delete()
         return config
+
+    @classmethod
+    def get_all_configurations(cls):
+        return Configuration.objects.all()
