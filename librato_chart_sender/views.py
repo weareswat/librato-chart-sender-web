@@ -64,7 +64,6 @@ def config_delete(request, config_id):
 
 def send_now(request, config_id):
     config = Configuration.objects.get(id=config_id)
-    import ipdb; ipdb.set_trace()
     chart_sender = LibratoChartSender(config.chart_ids.split(', '), config.recipients_emails.split(', '), {
         'librato_api_key': config.librato_api_key,
         'mailgun_api_key': 'key-a05af654983f6c57ec99904a3b84c7b3'})
