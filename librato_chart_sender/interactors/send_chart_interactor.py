@@ -1,4 +1,5 @@
 from chart_sender import LibratoChartSender
+import os
 
 class SendChartInteractor:
 
@@ -16,7 +17,7 @@ class SendChartInteractor:
             recipients,
             {
                'librato_api_key': configuration.librato_api_key,
-               'mailgun_api_key': 'key-a05af654983f6c57ec99904a3b84c7b3'
+               'mailgun_api_key': os.environ['MAILGUN_API_KEY']
             }
         )
         chart_sender.run()
