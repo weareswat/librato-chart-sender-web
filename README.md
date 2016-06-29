@@ -33,6 +33,7 @@ It's meant so that admins can acess the website and work with their own configur
 	Set environment variable: (needed for sending emails via mailgun)
 	
 	1. ```export MAILGUN_API_KEY=your_mailgun_api_key``` (or better add it to ~/.bashrc or ~/.bash_profile
+	* all necessary credentials you will find in the access spreadsheet 
 	
 
 4. Migrate the database to your machine
