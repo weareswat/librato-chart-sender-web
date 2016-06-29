@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+
+        <title>Librato Chart Sender Web</title>
+
+        <!-- This are css files -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jumbotron.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+
+        <!-- This are js files -->
+        <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/login.js' %}"></script>
+    </head>
+    <body>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Login to Your Account</h1><br>
+                <form method="post" action=".?next={{ redirect_to }}"> {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username"/>
+                    <input type="password" name="password" placeholder="Password"/>
+
+                    <input type="submit" class="login loginmodal-submit" value="Login"/>
+                </form>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
