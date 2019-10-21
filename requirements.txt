@@ -2,7 +2,7 @@ psycopg2==2.6.1
 ipdb==0.8.1
 Django==1.9.7
 django-fontawesome==0.2.6
-urllib3==1.15.1
+urllib3==1.24.2
 gunicorn==19.6.0
 dj-database-url==0.4.1
 APScheduler==3.0.0
